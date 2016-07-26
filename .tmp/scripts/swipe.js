@@ -8,7 +8,7 @@
 
 function Swipe(container, options) {
 
-  "use strict";
+  'use strict';
 
   // utilities
 

@@ -2525,7 +2525,7 @@ var transition = Object.freeze({
   };
 
   pathStateMachine[IN_SUB_PATH] = {
-    "'": [IN_SINGLE_QUOTE, APPEND],
+    '\'': [IN_SINGLE_QUOTE, APPEND],
     '"': [IN_DOUBLE_QUOTE, APPEND],
     '[': [IN_SUB_PATH, INC_SUB_PATH_DEPTH],
     ']': [IN_PATH, PUSH_SUB_PATH],
@@ -2534,7 +2534,7 @@ var transition = Object.freeze({
   };
 
   pathStateMachine[IN_SINGLE_QUOTE] = {
-    "'": [IN_SUB_PATH, APPEND],
+    '\'': [IN_SUB_PATH, APPEND],
     'eof': ERROR,
     'else': [IN_SINGLE_QUOTE, APPEND]
   };
@@ -2671,7 +2671,7 @@ var transition = Object.freeze({
 
     function maybeUnescapeQuote() {
       var nextChar = path[index + 1];
-      if (mode === IN_SINGLE_QUOTE && nextChar === "'" || mode === IN_DOUBLE_QUOTE && nextChar === '"') {
+      if (mode === IN_SINGLE_QUOTE && nextChar === '\'' || mode === IN_DOUBLE_QUOTE && nextChar === '"') {
         index++;
         newChar = '\\' + nextChar;
         actions[APPEND]();
