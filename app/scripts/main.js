@@ -40,8 +40,9 @@ new Vue({
     fetchData: function () {
     var self = this;
     $.get( apiURL, function( data ) {
-        self.items = data;
-        console.log(data);
+      var top5 = data.slice(0, 5);
+      self.items = top5;
+      console.log(top5);
     });
 
     }
